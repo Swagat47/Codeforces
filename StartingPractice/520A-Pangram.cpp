@@ -16,7 +16,7 @@ int main(){
 		for(int i=0; i<l ;i++){
 			int t = s.at(i)-65;
 			if(arr[t]<1)
-				arr[t]++;
+				arr[t]++
 		}
 		for(int i=0; i<26; i++){
 			sum+=arr[i];
