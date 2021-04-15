@@ -10,8 +10,8 @@ int main(){
 	cin >> s;
 	int l = s.length();
 
-	for(int i=0; i<l-7; i++){
-		string temp = s.substr(i,i+6);
+	for(int i=0; i<l-6; i++){
+		string temp = s.substr(i,7);
 		if(temp=="1111111"|| temp == "0000000"){
 			++count;
 			break;
