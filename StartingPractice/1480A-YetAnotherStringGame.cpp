@@ -14,16 +14,24 @@ int main(){
 		int l = s.length();
 
 		for (int j = 0; j < l; ++j)
-		{
-			if (i%2==0)
-			{
-				if(s.at(i)!<s.at(i+1))
-					s.at(i) = --s.at(i+1);
-				else if (s.at(i+1)-s.at(i))
-				{
-					/* code */
-				}
+	    {
+			if (j%2!=0){
+
+				if (s.at(j) != 122)
+					s.at(j) = 122;
+				else
+					s.at(j)--;
+			}
+
+			else{
+				if (s.at(j) != 97)
+					s.at(j) = 97;
+				else
+					s.at(j)++;
 			}
 		}
+		
+		cout << s <<endl;	
 	}
+	return 0;
 }
