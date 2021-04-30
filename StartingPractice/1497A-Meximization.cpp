@@ -4,22 +4,39 @@
 
 using namespace std;
 
-int main(){
-	int inputs;
-	cin >> inputs;
-	for(int i=0; i<inputs; i++){
+int main()
+{
+	int t;
+	cin >> t;
+	while(t--){
 		int n;
 		cin >> n;
-		mex(n);
+		//vector<int> v;
+		int arr[n];
+		int a[n]={0};
+		for (int i = 0; i < n; ++i)
+		{
+			cin>>arr[i];
+		}
+		
+		sort(arr, arr+n);
+		int c=n-1;
+		cout<<arr[0]<<" ";
+		
+		while(c!=0){
+			for (int i = 1; i < n; ++i)
+			{
+				if(arr[i]!=arr[i-1]){
+					if(a[i]==0){
+						c--;
+						cout<<arr[i]<<" ";
+						a[i]++;
+					}	
+				}
+			}
+		}
+		cout<<endl;
 	}
-}
 
-void mex(int n){
-	vector<int> v(n);
-	for (vector<int>::iterator i = .begin(); i != .end(); ++i){
-		cin >> v[i];			
-	}
-
-	
-
+	return 0;
 }
