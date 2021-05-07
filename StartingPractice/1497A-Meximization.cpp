@@ -26,8 +26,8 @@ int main()
 		while(c!=0){
 			for (int i = 1; i < n; ++i)
 			{
-				if(arr[i]!=arr[i-1]){
-					if(a[i]==0){
+				if(a[i]==0){
+					if(arr[i]!=arr[i-1]){
 						c--;
 						cout<<arr[i]<<" ";
 						a[i]++;
