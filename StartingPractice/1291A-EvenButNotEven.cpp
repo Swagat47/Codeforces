@@ -22,19 +22,31 @@ int main(int argc, char const *argv[])
 			continue;
 		}
 
-		for (int i = 0; i < l; ++i)
+		for (int i = l-1; i >=0; --i)
 		{
 			arr[i] = s[i]-48;
 			if(o==0){
 				if(arr[i]%2!=0){
 					++o;
 					pos = i;
+
+					if (i==0 && arr[i+1]==0 && arr[i]%2!=0)
+					{
+						pos = -1;
+					}
+					
 				}
 			}	
 			sum += arr[i];
 		}
 
-		if(arr[l-1]%2==0){
+		if (pos == -1)
+		{
+			cout<<-1<<endl;
+			continue;
+		}
+
+		if(arr[l-1]%2==0 && pos!=-1){
 			sum -= arr[l-1];
 			l--;
 		}
