@@ -1,10 +1,9 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int search(int arr[], int x, int n){
-	int pos =0;
+	int pos = 0;
 	if(x==0){
 		for (int i = 1; i <= n-1; ++i)
 		{
@@ -16,7 +15,7 @@ int search(int arr[], int x, int n){
 	}
 	else if (x==n-1)
 	{
-		for (int i = n-2; i >= 0; ++i)
+		for (int i = n-2; i >= 0; --i)
 		{
 			if(arr[i]==0){
 				pos = i;
@@ -25,7 +24,7 @@ int search(int arr[], int x, int n){
 		}
 	}
 	else{
-		int pos1 = 0, pos2 = 0;
+		int pos1 = -1, pos2 = -1;
 		for (int i = x+1; i <=n-1; ++i)
 		{
 			if(arr[i]==0){
@@ -34,14 +33,20 @@ int search(int arr[], int x, int n){
 			}
 		}
 
-		for (int i = x-1; i >= 0; ++i)
+		for (int i = x-1; i >= 0; --i)
 		{
 			if(arr[i]==0){
 				pos1=i;
 				break;
 			}
 		}
-		int pos = abs(x-pos1)<abs(x-pos2)? pos1:pos2;
+		if (pos1!=-1 && pos2!=-1)
+			pos = x-pos1<=pos2-x? pos1:pos2;
+		else if(pos1==-1)
+			pos = pos2;
+		else
+			pos=pos1;
+		
 	}
 	arr[pos]=-1;
 	return pos;
@@ -52,7 +57,7 @@ int main()
 	int n;
 	cin>>n;
 	int arr[n];
-	int count;
+	int count=0;
 	int steps = 0;
 	for (int i = 0; i < n; ++i)
 	{
@@ -61,7 +66,7 @@ int main()
 			++count;
 	}
 	if(count==0){
-		cout << 0<< endl;
+		cout <<0<< endl;
 		return 0;
 	}
 
@@ -69,9 +74,9 @@ int main()
 	{
 		if(arr[i]==1){
 			int pos = search(arr,i,n);
-			cout<<pos<<" ";
+			//cout<<pos<<" ";
 			steps += abs(i-pos);
-			cout<<steps<<endl;
+			//cout<<steps<<endl;
 		}
 	}
 	cout<<steps;

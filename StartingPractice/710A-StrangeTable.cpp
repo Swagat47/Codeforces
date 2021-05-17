@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	while(tc--){
 		ll n,m,x;
 		cin >>n>>m>>x;
-		ll d = ceil((float)x/n);
+		ll d = ceil((double)x/n);
 		ll r = x%n;
 		if(x%n==0)
 			r=n;
