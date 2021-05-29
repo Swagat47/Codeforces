@@ -1,12 +1,11 @@
 #include <iostream>
-#include <unordered_map>
 
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
 	int tc;
-	cin >> tc;
+	cin>>tc;
 	while(tc--){
 		
 	}
