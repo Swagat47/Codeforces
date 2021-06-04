@@ -1,18 +1,18 @@
 #include <iostream>
-#include <camth>
+#include <cmath>
 #define ll long long 
 
 using namespace std;
 
-int bsearch(ll l, ll r){
+int bsearch(ll l, ll r, ll sv, ll x){
 	while(l<=r){
-		mid = (l+r)/2;
+		ll mid = (l+r)/2;
 		if(pow(mid,3) + pow(sv,3) == x)
 			return 1;
-		if(s>=mid){
+		if(x-pow(sv,3)>=pow(mid,3)){
 			l=mid+1;
 		}
-		if (s<mid)
+		if (x-pow(sv,3)<pow(mid,3))
 		{
 			r=mid-1;
 		}
@@ -27,9 +27,23 @@ int main()
 	while(tc--){
 		ll x;
 		cin >> x;
-		ll sum = 0;
+		//cout<<x<<" ";
 		ll sv = cbrt(x);
-		ll l = 1;
+		ll half = (sv+1)/2;
+		ll ans = -1;
+		while(sv>=half){
+			ans=bsearch(1, sv, sv, x);{
+				if(ans==1){
+					cout<<"Yes"<<endl;
+					break;
+				}
+			}
+			sv--;
+		}
+		if(ans == 1)
+			continue;
+		else
+			cout<<"No"<<endl;
 	}
 	return 0;
 }
