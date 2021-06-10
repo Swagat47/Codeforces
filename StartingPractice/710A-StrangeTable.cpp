@@ -21,60 +21,49 @@
 // 	return 0;
 // }
 #include <iostream>
-#include <cmath>
+#include <cstring>
 
 using namespace std;
 
-class city
+class book
 {
 public:
-	int id;
-	long int vaccines, population;
-	double percentage= 0;
-	city(){
-		id=0;
-		vaccines=0;
-		population=0;
+	int pages, chapters;
+	string author, name;
+	double print_price, sale_price= 0;
+	book(){
+		pages=0;
+		chapters=0;
+		author = "";
+		name = "";
 	};
 	void readData(){
-		cin>>id>>vaccines>>population;
+		cin>>author>>name>>chapters>>pages;
 	}
 	void calculate(){
-		percentage = double(vaccines)/population*100;
+		if (pages>500)
+			print_price = pages*0.35 + chapters*5.0 + 80.0;
+		else
+			print_price = pages*0.65 + chapters*7.5 + 120.0;
+		sale_price = 1.25 * print_price;
 	}
 	void display(){
-		cout<<id<<" "<<vaccines<<" "<<population<<" "<<percentage<<endl;
-	}
-	city operator +(city const &obj){
-		city temp;
-		temp.vaccines = vaccines + obj.vaccines;
-		temp.population = population + obj.population;
-		return temp; 
+		cout<<name<<" "<<author<<" "<<print_price<<" "<<sale_price<<endl;
 	}
 	
 };
 
 int main()
 {
-	city c[6];
-	city finalc;
-    float xm=0,ym=0;
-    for(int i=0;i<6;i++)
+	book c[3];
+    for(int i=0;i<3;i++)
     	c[i].readData();
     
-    for(int i=0;i<6;i++)
+    for(int i=0;i<3;i++)
     	c[i].calculate();
     
-    for(int i=0;i<6;i++)
-        c[i].display();
-
-    for (int i = 0; i < 6; ++i)
-    {
-    	finalc = finalc + c[i];  
-    } 
-    finalc.id = 0;
-    finalc.calculate();
-    finalc.display();   
+    for(int i=0;i<3;i++)
+        c[i].display();  
 
 	return 0;
 }
