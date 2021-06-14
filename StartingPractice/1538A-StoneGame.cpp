@@ -1,6 +1,5 @@
 #include <iostream>
 #include <climits>
-#include <cmath>
 
 using namespace std;
 
@@ -30,31 +29,15 @@ int main()
 				min = arr[i];
 			}
 		}
-		if ( abs(max_pos-min_pos) >= n/2)
-		{
-			int min1 = (min_pos<max_pos)? min_pos:max_pos;
-			int max1 = (min1==min_pos)?max_pos:min_pos;
-			int ans = min1+1 + n-max1;
-			cout<<ans<<endl;
-			continue;
-		}
-		else{
-			if (min_pos>= n/2 && max_pos>=n/2)
-			{
-				int min1 = (min_pos<max_pos)? min_pos:max_pos;
-				cout<<n-min1<<endl;
-			}
-			else if(min_pos<= n/2 && max_pos<=n/2){
-				int max1 = (max_pos>min_pos)?max_pos:min_pos;
-				cout<<max1+1<<endl;
-			}
-			else{
-				int min1 = (min_pos<max_pos)? min_pos:max_pos;
-				int max1 = (max_pos>min_pos)? max_pos:min_pos;
-				int ans = (max1+1 < n-min1)? max1+1:n-min1;
-				cout<<ans<<endl;
-			}
-		}
+	
+		int min1 = (min_pos<max_pos)? min_pos:max_pos;
+		int max1 = (max_pos>min_pos)?max_pos:min_pos;
+		int ans1 = min1+1 + n-max1;
+
+		int ans2 = (max1+1 < n-min1)? max1+1:n-min1;
+		int ans = (ans1<ans2)?ans1:ans2;
+		cout<<ans<<endl;
+		
 	}
 	return 0;
 }

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <algorithm>
+#include <climits>
+#include <unordered_set>
 
 #define ll long long
 
 using namespace std;
-
 
 int main()
 {
@@ -18,13 +19,6 @@ int main()
 		for (int i = 0; i < n; ++i)
 		{
 			cin >> arr[i];
-			if (count == 0)
-			{
-				if (arr[i]>l/2)
-				{
-					start = arr[i];
-				}
-			}
 		}
 		sort(arr, arr+n);
 	}
