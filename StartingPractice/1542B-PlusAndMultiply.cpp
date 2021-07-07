@@ -17,22 +17,18 @@ int main()
 		vector<int> v;
 		vector<int>::iterator i = v.begin();
 		v.push_back(1);
-		int x=0;
-		while(*(i+x)<=n){
-			int t = *(i+x);
+		//int x=0;
+		while(*i<=n){
+			int t = *i;
 			int prod = t*a;
 			int sum = t+b;
 			v.push_back(prod);
 			v.push_back(sum);
-			if(*(i+x)==n){
+			if(*i==n){
 				ans = "Yes";
 				break;
 			}
-			for (auto& j:v)
-			{
-				cout<<j<<" ";
-			}
-			x++;
+			i++;
 		}
 		cout<<ans<<endl;
 	}
