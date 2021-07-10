@@ -1,7 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <iterator>
-#include <algorithm>
 #include <string>
 #define ll long long
 using namespace std;
@@ -14,21 +11,24 @@ int main()
 		int n,a,b;
 		string ans="No";
 		cin >> n >> a >> b;
-		vector<int> v;
-		vector<int>::iterator i = v.begin();
-		v.push_back(1);
-		//int x=0;
-		while(*i<=n){
-			int t = *i;
-			int prod = t*a;
-			int sum = t+b;
-			v.push_back(prod);
-			v.push_back(sum);
-			if(*i==n){
-				ans = "Yes";
-				break;
+		while(n!=1 && n>0){
+			if(a!=1){
+				while(n%a==0){
+					n/=a;
+				}
+				while(n%a!=0 && n!=1 && n>0){
+					n-=b;
+				}
 			}
-			i++;
+			else{
+				if((n-1)%b==0){
+					ans = "Yes";
+					break;
+				}
+			}
+		}
+		if(n==1){
+			ans = "Yes";
 		}
 		cout<<ans<<endl;
 	}
