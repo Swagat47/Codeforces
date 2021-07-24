@@ -87,7 +87,7 @@ int main()
 			string ss = n.substr(start, temp);
 			for(int j=0; j<ss.length(); j++){
 				int count = 1;
-				while(ss[j]==ss[j+1] && j!=ss.length()-1){
+				while(ss[j]==ss[j+1]){
 					++count;
 					j++;
 				}
