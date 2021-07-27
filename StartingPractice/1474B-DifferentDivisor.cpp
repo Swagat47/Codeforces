@@ -1,12 +1,16 @@
 #include <iostream>
-
-int main(int argc, char const *argv[])
+using namespace std;
+int main()
 {
+	int n1, n2;
+	cin >> n1 >>n2;
 	int x=1;
-	troops = A[i]-x;
-	ll days = 0;
-	for(int i=0; i<n; i++){
-		if(arr[i]<)
+	while(n1--){
+		int term = 3*x++ + 5;
+		if(term%n2!=0){
+			cout<<term<<endl;
+		}
+		else
+			n1++;
 	}
-	return 0;
 }
